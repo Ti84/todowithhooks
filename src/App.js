@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useReducer } from 'react';
 import './App.css';
+import ToDoInput from './ToDoInput';
+import { toDoReducer, TODO_ADD } from './reducers/todo';
+import { getToDosFromStorage } from './utils/getFromStorage';
+import ToDoList from './ToDoList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [toDoState, toDoDispatch] = useReducer(
+    toDoReducer,
+    getToDosFromStorage()
   );
-}
+
+  const addToDo = newToDoName => {
+    toDoDispatch({
+      type: TODO_ADD,
+      payload: newToDoName
+    });
+  };
+
+  return (
+    <main className="App">
+      <h1>ToDo List</h1>
+      <ToDoInput onAddToDo={addToDo} />
+      <ToDoList toDoListData={toDoState} />
+    </main>
+  );
+};
 
 export default App;
+
+// Color toggle using css variables ::root
+// Local storage.
+// Unit tests
+// Accessible
+
+// eventually drag / droppable.
