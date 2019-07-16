@@ -9,13 +9,16 @@ const ToDoInput = ({ onAddToDo }) => {
     setToDoName('');
   };
 
+  const onChange = e => {
+    if (e.target.value.length > 25) {
+      return;
+    }
+    setToDoName(e.target.value);
+  };
+
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        onChange={e => setToDoName(e.target.value)}
-        value={toDoName}
-      />
+      <input type="text" onChange={onChange} value={toDoName} />
     </form>
   );
 };

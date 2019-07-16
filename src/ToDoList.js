@@ -1,18 +1,30 @@
 import React from 'react';
-const ToDoList = ({ toDoListData }) => {
+import ToDo from './ToDo';
+const ToDoList = ({ toDoListData, onToggleCompleted, onDeleteToDo }) => {
   const toDos =
     toDoListData &&
     toDoListData.length > 0 &&
     toDoListData.map(toDo => (
-      <tr>
-        <td>{toDo.id}</td>
-        <td>{toDo.name}</td>
-        <td>{toDo.completed.toString()}</td>
-      </tr>
+      <ToDo
+        key={toDo.id}
+        id={toDo.id}
+        name={toDo.name}
+        completed={toDo.completed}
+        onToggleCompleted={id => onToggleCompleted(id)}
+        onDeleteToDo={id => onDeleteToDo(id)}
+      />
     ));
   return (
     <table>
-      <tbody>{toDos ? toDos : 'Nothing ToDo Yet!'}</tbody>
+      <tbody>
+        {toDos ? (
+          toDos
+        ) : (
+          <tr>
+            <td>Nothing ToDo Yet!</td>
+          </tr>
+        )}
+      </tbody>
     </table>
   );
 };

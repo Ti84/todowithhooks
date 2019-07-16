@@ -1,7 +1,12 @@
 import React, { useReducer } from 'react';
 import './App.css';
 import ToDoInput from './ToDoInput';
-import { toDoReducer, TODO_ADD } from './reducers/todo';
+import {
+  toDoReducer,
+  TODO_ADD,
+  TODO_TOGGLE,
+  TODO_DELETE
+} from './reducers/todo';
 import { getToDosFromStorage } from './utils/getFromStorage';
 import ToDoList from './ToDoList';
 
@@ -18,20 +23,39 @@ const App = () => {
     });
   };
 
+  const toggleCompleted = id => {
+    toDoDispatch({
+      type: TODO_TOGGLE,
+      payload: id
+    });
+  };
+
+  const deleteToDo = id => {
+    toDoDispatch({
+      type: TODO_DELETE,
+      payload: id
+    });
+  };
+
   return (
     <main className="App">
-      <h1>ToDo List</h1>
+      <h1>ToDo</h1>
       <ToDoInput onAddToDo={addToDo} />
-      <ToDoList toDoListData={toDoState} />
+      <ToDoList
+        onToggleCompleted={toggleCompleted}
+        onDeleteToDo={deleteToDo}
+        toDoListData={toDoState}
+      />
     </main>
   );
 };
 
 export default App;
 
-// Color toggle using css variables ::root
-// Local storage.
-// Unit tests
-// Accessible
+// Color toggle using css variables ::root**
+// Local storage**
+// Unit tests**
+// Accessible**
 
-// eventually drag / droppable.
+// eventually drag / droppable?
+// useContext?
