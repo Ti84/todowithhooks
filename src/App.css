@@ -1,3 +1,64 @@
-.App {
+.app {
   text-align: center;
+  background-color: black;
+}
+
+.app__wrap {
+  color: white;
+  background: url(https://www.runescape.com/img/rsp777/bg2.jpg) repeat-y center
+    top;
+  margin: 0 auto;
+  overflow-y: hidden;
+  padding: 0 50px;
+  width: 815px;
+  min-height: 100vh;
+}
+
+.app__content {
+  margin-top: 50px;
+  background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif)
+    repeat-y top center;
+  padding: 50px 75px;
+  position: relative;
+}
+
+.app__content:before {
+  background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif)
+    no-repeat center top;
+  content: '';
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: -11px;
+  width: 100%;
+}
+
+.app__content:after {
+  background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_bottom.gif)
+    no-repeat center bottom;
+  content: '';
+  height: 50px;
+  left: 0;
+  position: absolute;
+  bottom: -11px;
+  width: 100%;
+}
+
+.app__footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer__contain {
+  width: 815px;
+  font-size: 12px;
+}
+
+.app a {
+  color: #90c040;
+  text-decoration: none;
+}
+
+.app a:hover {
+  text-decoration: underline;
 }

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, Fragment } from 'react';
 import './App.css';
 import ToDoInput from './ToDoInput';
 import {
@@ -9,6 +9,7 @@ import {
 } from './reducers/todo';
 import { getToDosFromStorage } from './utils/getFromStorage';
 import ToDoList from './ToDoList';
+import Footer from './Footer';
 
 const App = () => {
   const [toDoState, toDoDispatch] = useReducer(
@@ -38,15 +39,24 @@ const App = () => {
   };
 
   return (
-    <main className="App">
-      <h1>ToDo</h1>
-      <ToDoInput onAddToDo={addToDo} />
-      <ToDoList
-        onToggleCompleted={toggleCompleted}
-        onDeleteToDo={deleteToDo}
-        toDoListData={toDoState}
-      />
-    </main>
+    <Fragment>
+      <div className="app">
+        <div className="app__wrap">
+          <main>
+            <h1>Ye Ol' ToDo</h1>
+            <ToDoInput onAddToDo={addToDo} />
+            <section className="app__content">
+              <ToDoList
+                onToggleCompleted={toggleCompleted}
+                onDeleteToDo={deleteToDo}
+                toDoListData={toDoState}
+              />
+            </section>
+          </main>
+          <Footer />
+        </div>
+      </div>
+    </Fragment>
   );
 };
 
@@ -59,3 +69,6 @@ export default App;
 
 // eventually drag / droppable?
 // useContext?
+
+// Credit https://favicon.io/emoji-favicons/white-heavy-check-mark/
+// CRA
