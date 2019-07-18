@@ -7,7 +7,7 @@ import {
   TODO_TOGGLE,
   TODO_DELETE
 } from './reducers/todo';
-import { getToDosFromStorage } from './utils/getFromStorage';
+import { getToDosFromStorage } from './utils/localStorage';
 import ToDoList from './ToDoList';
 import Footer from './Footer';
 

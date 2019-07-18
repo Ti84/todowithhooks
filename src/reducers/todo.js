@@ -1,4 +1,5 @@
 import generateId from '../utils/generateId';
+import { setToDosInStorage } from '../utils/localStorage';
 
 // TODO ACTIONS
 export const TODO_ADD = 'TODO_ADD';
@@ -6,10 +7,11 @@ export const TODO_TOGGLE = 'TODO_TOGGLE';
 export const TODO_DELETE = 'TODO_DELETE';
 
 export const toDoReducer = (state, action) => {
+  let newState;
   switch (action.type) {
     case TODO_ADD:
       if (action.payload) {
-        return [
+        newState = [
           ...state,
           {
             id: generateId(),
@@ -17,10 +19,11 @@ export const toDoReducer = (state, action) => {
             completed: false
           }
         ];
+        setToDosInStorage(newState);
       }
-      return state;
+      return newState;
     case TODO_TOGGLE:
-      return state.map(toDo => {
+      newState = state.map(toDo => {
         if (toDo.id === action.payload) {
           return {
             ...toDo,
@@ -29,8 +32,12 @@ export const toDoReducer = (state, action) => {
         }
         return toDo;
       });
+      setToDosInStorage(newState);
+      return newState;
     case TODO_DELETE:
-      return state.filter(toDo => toDo.id !== action.payload);
+      newState = state.filter(toDo => toDo.id !== action.payload);
+      setToDosInStorage(newState);
+      return newState;
     default:
       console.error('Use the action constants bro.');
       return state;

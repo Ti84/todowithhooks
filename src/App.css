@@ -44,11 +44,6 @@
   width: 100%;
 }
 
-.app__footer {
-  position: absolute;
-  bottom: 0;
-}
-
 .footer__contain {
   width: 815px;
   font-size: 12px;

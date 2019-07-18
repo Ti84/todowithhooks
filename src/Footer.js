@@ -13,7 +13,7 @@ const Footer = () => {
               href="https://oldschool.runescape.com/"
             >
               https://oldschool.runescape.com/
-            </a>{' '}
+            </a>
             . The styles and images here were created by the fantastic team over
             there.
           </p>
