@@ -1,3 +1,6 @@
+/* Move this into seperated files based on what component its in */
+
+/* App Layout */
 .app {
   text-align: center;
   background-color: black;
@@ -22,6 +25,14 @@
   position: relative;
 }
 
+.app__content__text--primary {
+  color: #6d4211;
+}
+
+.app__content__text--secondary {
+  color: black;
+}
+
 .app__content:before {
   background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif)
     no-repeat center top;
@@ -44,11 +55,13 @@
   width: 100%;
 }
 
+/* Footer  */
 .footer__contain {
   width: 815px;
   font-size: 12px;
 }
 
+/* Global app links */
 .app a {
   color: #90c040;
   text-decoration: none;
@@ -56,4 +69,29 @@
 
 .app a:hover {
   text-decoration: underline;
+}
+
+/* ToDo list */
+.todo__list {
+  width: 100%;
+}
+
+/* ToDo items */
+.todo__field--large {
+  width: 90%;
+}
+
+.todo__field--small {
+  width: 5%;
+}
+
+.todo__field--left {
+  text-align: left;
+}
+
+.todo__delete {
+  cursor: pointer;
+  font-weight: 900;
+  border: 0;
+  background: transparent;
 }

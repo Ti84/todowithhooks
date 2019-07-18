@@ -43,6 +43,7 @@ const App = () => {
       <div className="app">
         <div className="app__wrap">
           <main>
+            {/* Put this in header component, make it more like osrs site style. */}
             <h1>Ye Ol' ToDo</h1>
             <ToDoInput onAddToDo={addToDo} />
             <section className="app__content">

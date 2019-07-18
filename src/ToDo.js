@@ -7,12 +7,16 @@ const ToDo = ({ id, name, completed, onToggleCompleted, onDeleteToDo }) => {
     onDeleteToDo(id);
   };
   return (
-    <tr>
-      <td>{name}</td>
-      <td>
-        <button onClick={deleteToDo}>DELETE</button>
+    <tr className="todo">
+      <td className="todo__field--large todo__field--left app__content__text--secondary">
+        {name}
       </td>
-      <td>
+      <td className="todo__field--small">
+        <button className="todo__delete" onClick={deleteToDo}>
+          X
+        </button>
+      </td>
+      <td className="todo__field--small">
         <input
           type="checkbox"
           aria-label={'complete ' + name}

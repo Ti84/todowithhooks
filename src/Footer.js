@@ -5,8 +5,8 @@ const Footer = () => {
       <section className="app__footer">
         <div className="footer__contain">
           <p>
-            If you somehow got to this page, I just use this for an easy to do
-            list. I took styling from{' '}
+            If you somehow got to this page, I just use this for my to do list.
+            I took styling from{' '}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -14,8 +14,8 @@ const Footer = () => {
             >
               https://oldschool.runescape.com/
             </a>
-            . The styles and images here were created by the fantastic team over
-            there.
+            . All of the styles and images you see here, were created by the
+            fantastic team over there at Jagex.
           </p>
         </div>
       </section>

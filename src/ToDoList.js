@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ToDo from './ToDo';
 const ToDoList = ({ toDoListData, onToggleCompleted, onDeleteToDo }) => {
   const toDos =
@@ -15,17 +15,20 @@ const ToDoList = ({ toDoListData, onToggleCompleted, onDeleteToDo }) => {
       />
     ));
   return (
-    <table>
-      <tbody>
-        {toDos ? (
-          toDos
-        ) : (
-          <tr>
-            <td>Nothing ToDo Yet!</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
+    <Fragment>
+      <h2 className="app__content__text--primary">To Do</h2>
+      <table className="todo__list">
+        <tbody>
+          {toDos ? (
+            toDos
+          ) : (
+            <tr>
+              <td>Nothing ToDo Yet!</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </Fragment>
   );
 };
 
